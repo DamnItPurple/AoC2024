@@ -16,25 +16,6 @@ def do_part1(pairs):
 
     return ans
 
-def do_part2(reports):
-    '''
-    use part 1 to find failing report then use permutation to generate report with one fewer # and rerun them
-    '''
-    safe = 0
-    for report in reports:
-        if do_part1([report]) == 0:
-            for i in range(len(report)):
-                new_report = report[:i] + report[i+1:]
-                if do_part1([new_report]) == 0:
-                    continue
-                else:
-                    safe+=1
-                    break
-        else:
-            safe += 1
-
-    return safe
-
 def process_input(filename):
     '''
     input looks like
@@ -56,7 +37,7 @@ def process_input_part2(filename):
     '''
     input looks like
 
-    xmul(2,4)%&mul[3,7]!@^do_not_mul(5,5)+mul(32,64]then(mul(11,8)mul(8,5))
+    xmul(2,4)&mul[3,7]!^don't()_mul(5,5)+mul(32,64](mul(11,8)undo()?mul(8,5))
 
     return list of tuples
     '''
