@@ -1,4 +1,4 @@
-# https://adventofcode.com/2024/day/1
+# https://adventofcode.com/2024/day/3
 # 
 
 from functools import reduce
