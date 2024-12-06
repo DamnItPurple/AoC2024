@@ -110,6 +110,7 @@ def do_part1(input,part1=True):
         if part1 == True:
             return dir_dict['^'][2] | dir_dict['>'][2] | dir_dict['v'][2] | dir_dict['<'][2]
         else:
+            print(f'place  obstacles here {new_obstacles}')
             return new_obstacles
 
     return len(get_to_next_obstacle(input,part1))
@@ -159,7 +160,7 @@ def process_input(filename):
 
 if __name__ == '__main__':
 
-    input = process_input('input.txt')
+    input = process_input('input0.txt')
 
     # print(input)
     print(f'start part 1')
