@@ -143,13 +143,15 @@ def match_part2(grid, i, j):
     NWSW = [grid[i-1][j-1], grid[i+1][j+1], grid[i+1][j-1], grid[i-1][j+1]]
     SESW = [grid[i+1][j+1], grid[i-1][j-1], grid[i+1][j-1], grid[i-1][j+1]]
     SENE = [grid[i+1][j+1], grid[i-1][j-1], grid[i-1][j+1], grid[i+1][j-1]]
+
+    # X pattern can only have one match
     if NWNE == NUM_2:
         num += 1
-    if NWSW == NUM_2:
+    elif NWSW == NUM_2:
         num += 1
-    if SESW == NUM_2:
+    elif SESW == NUM_2:
         num += 1
-    if SENE == NUM_2:
+    elif SENE == NUM_2:
         num += 1
     return num
 
