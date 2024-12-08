@@ -110,7 +110,7 @@ def do_part1(input,part1=True):
         if part1 == True:
             return dir_dict['^'][2] | dir_dict['>'][2] | dir_dict['v'][2] | dir_dict['<'][2]
         else:
-            print(f'place  obstacles here {new_obstacles}')
+            print(f'place obstacles here {new_obstacles}')
             return new_obstacles
 
     return len(get_to_next_obstacle(input,part1))
