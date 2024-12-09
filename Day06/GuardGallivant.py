@@ -4,6 +4,8 @@
 import itertools
 import time
 
+INPUT = 'input.txt'
+
 def do_part2(input):
     '''
     where can you add one more obstacle to create loop?
@@ -73,6 +75,12 @@ def do_part1(input,part1=True):
         if part1 == False:
             new_obstacles = set()
 
+        def exiting_area(pos, grid_size):
+            if pos[0] in [-1,grid_size[0]] or pos[1] in [-1,grid_size[1]]:
+                return True
+            else:
+                return False
+
         def part2_look_right_is_there_a_path_going_away(pos, dir, loc):
             try_pos = pos
             while True: #exit after f
@@ -91,7 +99,7 @@ def do_part1(input,part1=True):
         while True:
             next_pos = next_step(pos, dir_dict[dir][0])
             # print(next_pos)
-            if next_pos[0] in [-1,input['size'][0]] or next_pos[1] in [-1,input['size'][1]]:
+            if exiting_area( next_pos, input['size'] ): 
                 print(f'exiting at {pos}')
                 break
             if next_pos not in input['obstacles']:
@@ -110,7 +118,12 @@ def do_part1(input,part1=True):
         if part1 == True:
             return dir_dict['^'][2] | dir_dict['>'][2] | dir_dict['v'][2] | dir_dict['<'][2]
         else:
-            print(f'place obstacles here {new_obstacles}')
+            '''
+            TODO: Also find "existing loops": defined as step in any direction and look left to see obstacle.
+            then for each pos on that loop, look at opposite direction and note how many original path you intersection, that
+            would add the same # of new obstacles
+            '''
+            # print(f'place obstacles here {new_obstacles}')
             return new_obstacles
 
     return len(get_to_next_obstacle(input,part1))
@@ -159,8 +172,12 @@ def process_input(filename):
 
 
 if __name__ == '__main__':
-
-    input = process_input('input0.txt')
+    '''
+    start part 1
+    exiting at [123, 129]
+    do_part1 returns 5305 in 0.11676788330078125 seconds
+    '''
+    input = process_input(INPUT)
 
     # print(input)
     print(f'start part 1')
@@ -172,9 +189,9 @@ if __name__ == '__main__':
     # input = process_input_part2('input.txt')
     # # print(input)
     
-    print(f'start part 2')
-    start_time = time.time()
-    ans = do_part2(input);
-    end_time = time.time()
-    print(f'do_part2 returns {ans} in {end_time-start_time} seconds')
+    # print(f'start part 2')
+    # start_time = time.time()
+    # ans = do_part2(input);
+    # end_time = time.time()
+    # print(f'do_part2 returns {ans} in {end_time-start_time} seconds')
 
