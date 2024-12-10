@@ -99,7 +99,9 @@ def process_input(filename):
 if __name__ == '__main__':
     '''
     start part 1
-    do_part1 returns 472 in 0.0031604766845703125 seconds
+    do_part1 returns 472 in 0.003420114517211914 seconds
+    start part 2
+    do_part2 returns 969 in 0.0031342506408691406 seconds
     '''
     input = process_input(INPUT)
 
