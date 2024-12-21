@@ -9,7 +9,7 @@
             "type": "debugpy",
             "request": "launch",
             "program": "${file}",
-            "cwd": "${workspaceFolder}/Day19",
+            "cwd": "${workspaceFolder}/Day20",
             "console": "integratedTerminal"
         }
     ]
